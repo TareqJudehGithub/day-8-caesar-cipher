@@ -6,9 +6,11 @@ shift = int(input("Type the shift number:\n"))
 
 #Don't change the code above 👆
 
+# Encrypting:
+
 # Creating a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 def encrypt(plain_text, shift_amount):
-    # Shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text:
+    
     cipher_text = ""
     # Figuring out the index of each letter in plain_text:
     for letter in plain_text:
@@ -22,5 +24,24 @@ def encrypt(plain_text, shift_amount):
     print(cipher_text)
   
 
-# Calling the function:
-encrypt(text, shift)
+# Decrypting:
+
+# Creating a different function called 'decrypt' that takes the 'text' and 'shift' as inputs.
+def decrypt(plain_text, shift_amount):
+ 
+  word = ""
+  for letter in plain_text:
+    position = alphabet.index(letter)
+    new_position = position - shift_amount
+    new_letter = alphabet[new_position]
+    word += new_letter
+  print(word)
+
+
+# Calling functions based on direction variable input entry:
+if direction == "encode":
+  encrypt(text, shift)
+elif direction == "decode":
+  decrypt(text, shift)
+else: 
+  print("Bad entry.")
